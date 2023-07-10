@@ -1,0 +1,16 @@
+.temp {
+    font-size: 18px;
+    color: var(--grey-1);
+}
+h4, h5, h6 {
+    color: var(--grey-1);
+}
+
+.imgown {
+    height: 150px;
+    width: 170px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 3px;
+    margin-bottom: 10px;
+}

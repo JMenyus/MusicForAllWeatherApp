@@ -1,0 +1,42 @@
+<!-- *ngIf="weatherData" -->
+<div class="container" *ngIf="weatherData">
+    
+    <div class="row align-items-center text-light"
+    style="min-height: 100vh">
+    <div class="col-md-6">
+        <div *ngIf="weatherData.data[0].app_temp >= 30">
+            <img src="https://www.freevector.com/uploads/vector/preview/5705/FreeVector-Sun-Icon.jpg" alt="hot" class="imgown">
+        </div>
+        <div *ngIf="weatherData.data[0].app_temp < 30">
+            <img src="https://cdn.vectorstock.com/i/1000x1000/98/11/cold-days-need-hot-coffee-cup-of-coffee-logo-vector-19329811.webp" alt="cold" class="imgown">
+        </div>
+        <h6>Kérlek írj be egy város nevet (a default város Budapest)</h6>
+        <form #form="ngForm" (submit)="onSubmit()">
+            <input type="text" placeholder="Város keresése" name="city" [(ngModel)]="cityName">
+        </form>
+        <br>
+   
+    <div class="temp">
+        <h5>{{weatherData.data[0].city_name}}</h5>
+        <!-- <h6>Budapest</h6> -->
+        <fa-icon [icon]="['fas', 'thermometer-quarter']"></fa-icon>
+        {{weatherData.data[0].app_temp}} °C
+        <br>
+        <!-- {{weatherData.data[0].app_temp}} -->
+    </div>
+    </div>
+
+    <div class="col-md-6" *ngIf="weatherData.data[0].app_temp >= 30">
+        <h6>Zenék az időjáráshoz:</h6>
+        <app-youtube></app-youtube>
+    </div>
+
+    <div class="col-md-6" *ngIf="weatherData.data[0].app_temp < 30">
+        <h6>Zenék az időjáráshoz:</h6>
+        <app-youtube-winter></app-youtube-winter>
+    </div>
+
+    </div>
+
+
+</div>
